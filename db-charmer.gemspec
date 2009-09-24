@@ -5,13 +5,13 @@
 
 Gem::Specification.new do |s|
   s.name = %q{db-charmer}
-  s.version = "1.1.5"
+  s.version = "1.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Alexey Kovyrin"]
-  s.date = %q{2009-09-18}
+  s.authors = ["Alexey Kovyrin", "Gleb Pomykalov"]
+  s.date = %q{2009-09-24}
   s.description = %q{ActiveRecord Connections Magic (slaves, multiple connections, etc)}
-  s.email = %q{alexey@kovyrin.net}
+  s.email = %q{gleb.pomykalov@qik.com}
   s.extra_rdoc_files = [
     "LICENSE",
      "README.rdoc"
@@ -36,11 +36,11 @@ Gem::Specification.new do |s|
      "lib/db_charmer/multi_db_migrations.rb",
      "lib/db_charmer/multi_db_proxy.rb"
   ]
-  s.homepage = %q{http://github.com/kovyrin/db-charmer}
+  s.homepage = %q{http://github.com/glebpom/db-charmer}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
-  s.summary = %q{ActiveRecord Connections Magic}
+  s.summary = %q{ActiveRecord Connections Magic (qik.com version)}
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
