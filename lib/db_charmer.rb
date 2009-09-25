@@ -56,3 +56,9 @@ ActiveRecord::Migration.extend(DbCharmer::MultiDbMigrations::ClassMethods)
 
 # Enable the magic
 ActiveRecord::Base.extend(DbCharmer::DbMagic::ClassMethods)
+
+#Extending ActionController
+puts "Extending ActionController..."
+require 'db_charmer/action_controller_extensions'
+ActionController::Base.send :include, DbCharmer::ActionControllerExtensions
+
