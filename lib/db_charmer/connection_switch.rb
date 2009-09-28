@@ -2,7 +2,7 @@ module DbCharmer
   module ConnectionSwitch
     module ClassMethods
       def coerce_to_connection_proxy(conn, should_exist = true)
-        return nil if conn.nil?
+        return nil if conn.nil? || !DbCharmer.switch_connections?
 
         if conn.kind_of?(Symbol) || conn.kind_of?(String)
           return DbCharmer::ConnectionFactory.connect(conn, should_exist)
