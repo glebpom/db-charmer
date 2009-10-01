@@ -37,13 +37,21 @@ module DbCharmer
     
     module MasterSlaveClassMethods
       def on_slave(con = nil, proxy_target = nil, &block)
-        con ||= db_charmer_random_slave
-        raise ArgumentError, "No slaves found in the class and no slave connection given" unless con
-        on_db(con, proxy_target, &block)
+        if DbCharmer.switch_connections?
+          con ||= db_charmer_random_slave
+          raise ArgumentError, "No slaves found in the class and no slave connection given" unless con
+          on_db(con, proxy_target, &block)
+        else
+          yield(proxy_target)
+        end 
       end
 
       def on_master(proxy_target = nil, &block)
-        on_db(nil, proxy_target, &block)
+        if DbCharmer.switch_connections?
+          on_db(nil, proxy_target, &block)
+        else
+          yield(proxy_target)
+        end          
       end
     end
   end
